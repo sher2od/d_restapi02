@@ -28,3 +28,27 @@ class TaskSerializer(serializers.ModelSerializer):
         if value < timezone.now():
             raise serializers.ValidationError({'due_date':'hozirga vaqtdan keyingi vaqtni kiriting'})
         return value
+    
+
+class RegisterSerializer(serializers.Serializer):
+    username = serializers.CharField(required=True)
+    password = serializers.CharField(required=True)
+    password2 = serializers.CharField(required=True)
+
+
+    def validate(self, attrs):
+        if attrs['password'] != attrs['password2']:
+            raise serializers.ValidationError({'password2':'password bilan mos emas'})
+        return super().validate(attrs)
+    
+
+class LoginSerializer(serializers.Serializer):
+    username = serializers.CharField(required=True)
+    password = serializers.CharField(required=True)
+
+
+
+
+
+
+
