@@ -51,9 +51,6 @@ class LoginView(APIView):
             token,created = Token.objects.get_or_create(user=user)
             return Response({'token':token.key})
 
-
-
-
 class CategoryViewSet(ModelViewSet):
     serializer_class = CategorySerializer
     queryset = Category.objects.all()

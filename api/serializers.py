@@ -1,5 +1,13 @@
+#''' rest_fremworkdan kelgan serialazer classsi '''  TODO
 from rest_framework import serializers
+
+
+
+# Bu oddiy modellar
 from .models import Category,Task
+
+
+# bu vaq bilan ishlsh
 from django.utils import timezone
 
 class CategorySerializer(serializers.ModelSerializer):
